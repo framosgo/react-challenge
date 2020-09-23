@@ -4,8 +4,10 @@ import { initialState } from '../models';
 
 export const productReducer = (state = initialState, action: ProductActions) => {
   switch (action.type) {
-    case ProductActionTypes.LoadProductList:
-      return [...action.payload];
+    case ProductActionTypes.GetAllProductsSuccess:
+      return [...action.payload!];
+    case ProductActionTypes.GetAllProductsError:
+      return [];
     default:
       return state;
   }

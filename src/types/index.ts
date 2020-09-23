@@ -1,12 +1,12 @@
 export type Action<T, P = undefined> = {
   type: T;
-  payload: P;
+  payload?: P;
 }
 
 export type Product = {
   favorite: number;
   id: string;
-  image_url: string;
+  imageUrl: string;
   productName: string;
   price: number;
   productDescription: string;

@@ -1,3 +1,4 @@
 export enum ProductActionTypes {
-  LoadProductList = 'LOAD_PRODUCT_LIST',
+  GetAllProductsSuccess = 'GET_ALL_PRODUCTS_SUCCESS',
+  GetAllProductsError = 'GET_ALL_PRODUCTS_ERROR',
 }
