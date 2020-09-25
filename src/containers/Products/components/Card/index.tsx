@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { STOCK_THRESHOLD } from '../../../../constants/product';
 import { Product } from '../../../../types';
+import { updateFavoriteProduct } from '../../api';
 import {
   BottomWrapper,
   Button,
@@ -21,10 +22,11 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ data, onAdd }: Props) => {
+  const [isFavourite, setFavourite] = useState(data.isFavourite);
   const {
+    id,
     description,
     imageUrl,
-    isFavourite,
     name,
     price,
     stock,
@@ -32,11 +34,18 @@ const Card: React.FC<Props> = ({ data, onAdd }: Props) => {
 
   const isAvailable = stock >= STOCK_THRESHOLD;
 
+  const toggleFavouriteProduct = useCallback(async () => {
+    try {
+      await updateFavoriteProduct(id, !isFavourite);
+      setFavourite(!isFavourite);
+    } catch {}
+  }, [id, isFavourite]);
+
   return (
     <Wrapper>
       <WrapperImage>
         <Image src={ imageUrl }></Image>
-        <HeartIcon isFavourite={ isFavourite } />
+        <HeartIcon onClick={ toggleFavouriteProduct } isFavourite={ isFavourite } />
       </WrapperImage>
       <WrapperContent>
         <Name>{ name }</Name>

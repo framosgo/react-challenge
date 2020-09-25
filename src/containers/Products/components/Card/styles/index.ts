@@ -34,6 +34,7 @@ export const HeartIcon = styled.div`
   height: 1.5rem;
   top: 0.5rem;
   right: 0.5rem;
+  cursor: pointer;
 
   &:before,
   &:after {

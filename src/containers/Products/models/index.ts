@@ -1,3 +1,3 @@
 import { Product } from '../../../types';
 
-export const initialState: Product[] = [];
+export const initialState: Map<string,Product> = new Map();

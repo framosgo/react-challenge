@@ -14,6 +14,6 @@ export type Product = {
 }
 
 export type AppState = {
-  products: Product[];
+  products: Map<string,Product>;
   shoppingCart: number;
 }

@@ -9,9 +9,9 @@ const Products = () => {
 
   useProductRequest(dispatch);
 
-  const productList = useMemo(() => products.map(product => (
-    <Card key={ product.id } data={ product} onAdd={ () => {} } />
-  )), [products.length]);
+  const productList = useMemo(() => Array.from(products).map(([key, product]) => (
+    <Card key={ key } data={ product} onAdd={ () => {} } />
+  )), [products]);
 
   return (
     <Wrapper>

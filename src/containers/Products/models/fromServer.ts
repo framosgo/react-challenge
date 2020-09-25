@@ -28,11 +28,14 @@ const createProductFromServer = (product: ProductFromServer): Product => {
   };
 };
 
-export const createProductListFromServer = (productList: ProductFromServer[]): Product[] => {
+export const createProductListFromServer = (productList: ProductFromServer[]): Map<string, Product> => {
   if (!Array.isArray(productList)) {
-    console.error('Error creating <Product[]> model. Not array found.', productList);
-    return [];
+    console.error('Error creating <Map<string,Product>> model. Not array found.', productList);
+    return new Map<string, Product>();
   }
 
-  return productList.map(p => createProductFromServer(p));
+  return productList.reduce((products, product) => {
+    const safeProduct = createProductFromServer(product);
+    return products.set(safeProduct.id, safeProduct);
+  }, new Map<string, Product>());
 };

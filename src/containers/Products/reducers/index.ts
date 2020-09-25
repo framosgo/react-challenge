@@ -1,3 +1,4 @@
+import { Product } from '../../../types';
 import { ProductActions } from '../actions';
 import { ProductActionTypes } from '../actionTypes';
 import { initialState } from '../models';
@@ -5,9 +6,9 @@ import { initialState } from '../models';
 export const productReducer = (state = initialState, action: ProductActions) => {
   switch (action.type) {
     case ProductActionTypes.GetAllProductsSuccess:
-      return [...action.payload!];
+      return new Map<string,Product>(action.payload!);
     case ProductActionTypes.GetAllProductsError:
-      return [];
+      return new Map<string, Product>();
     default:
       return state;
   }
