@@ -13,7 +13,16 @@ export type Product = {
   stock: number;
 }
 
+export type ProductCart = Product & {
+  amount: number;
+}
+
+export type ShoppingCart = {
+  data: Map<string,ProductCart>;
+  total: number;
+}
+
 export type AppState = {
   products: Map<string,Product>;
-  shoppingCart: number;
+  shoppingCart: ShoppingCart;
 }
