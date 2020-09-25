@@ -10,6 +10,7 @@ export const HEADER_BACKGROUND = colors.WHITE_1;
 export const HEADER_BORDER_COLOR = colors.GRAY_2;
 
 export const TEXT_PRIMARY_COLOR = colors.BLACK_2;
+export const LINK_PRIMARY_COLOR = colors.BLUE_1;
 
 export const SUCCESS_COLOR = colors.GREEN_1;
 export const WARNING_COLOR = colors.ORANGE_1;
