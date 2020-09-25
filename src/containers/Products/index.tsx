@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useAppContext } from '../../contexts';
 import Card from './components/Card';
 import { useProductRequest } from './hooks';
@@ -9,9 +9,9 @@ const Products = () => {
 
   useProductRequest(dispatch);
 
-  const productList = products.slice(0, 10).map(product => (
+  const productList = useMemo(() => products.map(product => (
     <Card key={ product.id } data={ product} onAdd={ () => {} } />
-  ));
+  )), [products.length]);
 
   return (
     <Wrapper>

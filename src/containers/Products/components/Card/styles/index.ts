@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
   background-color: ${ SECONDARY_BACKGROUND };
   width: 10rem;
   height: 16.5rem;
-  margin: 1rem;
 `;
 Wrapper.displayName = 'Wrapper';
 
