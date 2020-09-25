@@ -4,7 +4,6 @@ import Products from './containers/Products';
 
 const App = () => (
   <AppProvider>
-    // your stuff
     <Products />
   </AppProvider>
 )

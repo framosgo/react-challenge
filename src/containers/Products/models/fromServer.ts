@@ -8,21 +8,23 @@ export type ProductFromServer = {
   productName?: unknown;
   price?: unknown;
   productDescription?: unknown;
+  stock?: unknown;
 }
 
 const createProductFromServer = (product: ProductFromServer): Product => {
-  const {favorite, id, image_url, price, productDescription, productName} = product;
+  const { id, price, productName } = product;
   if (id === undefined || productName === undefined || price === undefined) {
     console.error('Error creating <Product> model', product);
   }
 
   return {
-    favorite: safeNumber(favorite),
+    description: safeString(product.productDescription),
     id: safeString(id),
-    imageUrl: safeString(image_url),
+    imageUrl: safeString(product.image_url),
+    isFavourite: !!product.favorite,
+    name: safeString(productName),
     price: safeNumber(price),
-    productDescription: safeString(productDescription),
-    productName: safeString(productName),
+    stock: safeNumber(product.stock),
   };
 };
 

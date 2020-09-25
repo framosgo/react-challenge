@@ -4,12 +4,13 @@ export type Action<T, P = undefined> = {
 }
 
 export type Product = {
-  favorite: number;
+  description: string;
   id: string;
   imageUrl: string;
-  productName: string;
+  isFavourite: boolean;
+  name: string;
   price: number;
-  productDescription: string;
+  stock: number;
 }
 
 export type AppState = {

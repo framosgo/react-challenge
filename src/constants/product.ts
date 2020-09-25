@@ -1,0 +1,1 @@
+export const STOCK_THRESHOLD = 5;
