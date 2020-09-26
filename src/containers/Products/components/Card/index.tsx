@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import { STOCK_THRESHOLD } from '../../../../constants/product';
 import { Product } from '../../../../types';
 import { updateFavoriteProduct } from '../../api';
+import { STOCK_THRESHOLD } from '../../constants';
 import {
   BottomWrapper,
   Button,

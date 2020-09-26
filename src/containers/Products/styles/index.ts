@@ -1,29 +1,18 @@
 import styled from 'styled-components';
 import { DESKTOP, MOBILE_XXL, TABLET } from '../../../styles/media-queries';
-import {
-  HEADER_BACKGROUND,
-  HEADER_BORDER_COLOR,
-  LINK_PRIMARY_COLOR,
-  TEXT_PRIMARY_COLOR,
-} from '../../../styles/skin';
+import { SIDEBAR_WIDTH } from '../../../styles/sizes';
+import { LINK_PRIMARY_COLOR, TEXT_PRIMARY_COLOR } from '../../../styles/skin';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-flow: column;
+
+  ${ TABLET } {
+    width: calc(100vw - ${ SIDEBAR_WIDTH }rem);
+    right: ${ SIDEBAR_WIDTH }rem;
+  }
 `;
 Wrapper.displayName = 'Wrapper';
-
-export const Header = styled.div`
-  display: flex;
-  flex-flow: column;
-  height: 4rem;
-  justify-content: center;
-  align-items: center;
-  background-color: ${ HEADER_BACKGROUND };
-  box-shadow: 0 4px 6px -6px ${ HEADER_BORDER_COLOR };
-  margin-bottom: 2rem;
-`;
-Header.displayName = 'Header';
 
 export const Title = styled.div`
   font-size: 2.5rem;

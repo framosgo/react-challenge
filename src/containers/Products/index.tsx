@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { Header } from '../../components/Header/styles';
 import { useAppContext } from '../../contexts';
 import Card from './components/Card';
 import { useProductRequest } from './hooks';
@@ -6,7 +7,6 @@ import {
   Content,
   FilterOption,
   FilterWrapper,
-  Header,
   Title,
   Wrapper,
 } from './styles';

@@ -17,9 +17,9 @@ export const WARNING_COLOR = colors.ORANGE_1;
 export const ERROR_COLOR = colors.RED_2;
 
 /* Sidebar */
-export const SIDEBAR_BACKGROUND = colors.GRAY_3;
-export const SIDEBAR_BORDER_COLOR = colors.WHITE_1;
-export const SIDEBAR_COLOR = colors.WHITE_1;
+export const SIDEBAR_BACKGROUND = colors.WHITE_1;
+export const SIDEBAR_BORDER_COLOR = colors.GRAY_2;
+export const SIDEBAR_COLOR = colors.BLACK_2;
 export const BACKDROP_BACKGROUND = colors.BLACK_TRANSPARENT;
 
 /* Footer */
