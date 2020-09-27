@@ -6,7 +6,8 @@ import Products from './containers/Products';
 import ShoppingCart from './containers/ShoppingCart';
 import getQuery, { TABLET } from './styles/media-queries';
 import { useMedia } from 'use-media';
-import { Sidebar } from './styles';
+import { Sidebar } from './components/Sidebar/styles';
+import { Routes } from './constants/routes';
 
 const App = () => {
   const isTabletOrLarger = useMedia(getQuery(TABLET));
@@ -21,11 +22,11 @@ const App = () => {
     <AppProvider>
       <Router>
         <Switch>
-          <Route path='/'>
+          <Route exact path={ Routes.Products }>
             { shoppingCart }
             <Products />
           </Route>
-          <Route path='/shopping-cart'>
+          <Route path={ Routes.ShoppingCart }>
             <ShoppingCart />
           </Route>
         </Switch>

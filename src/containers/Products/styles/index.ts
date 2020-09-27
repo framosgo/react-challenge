@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { DESKTOP, MOBILE_XXL, TABLET } from '../../../styles/media-queries';
+import { DESKTOP, MOBILE_XXL, TABLET, TABLET_L } from '../../../styles/media-queries';
 import { SIDEBAR_WIDTH } from '../../../styles/sizes';
-import { LINK_PRIMARY_COLOR, TEXT_PRIMARY_COLOR } from '../../../styles/skin';
+import { LINK_PRIMARY_COLOR } from '../../../styles/skin';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,13 +13,6 @@ export const Wrapper = styled.div`
   }
 `;
 Wrapper.displayName = 'Wrapper';
-
-export const Title = styled.div`
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: ${ TEXT_PRIMARY_COLOR };
-`;
-Title.displayName = 'Title';
 
 export const FilterWrapper = styled.div`
   display: flex;
@@ -49,16 +42,20 @@ export const Content = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 
-  ${MOBILE_XXL} {
+  ${ MOBILE_XXL } {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  ${TABLET} {
-    grid-template-columns: repeat(4, 1fr);
+  ${ TABLET } {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  ${DESKTOP} {
-    grid-template-columns: repeat(5, 1fr);
+  ${ TABLET_L } {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  ${ DESKTOP } {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 Content.displayName = 'Content';

@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { Header } from '../../components/Header/styles';
+import Header from '../../components/Header';
+import { Routes } from '../../constants/routes';
 import { useAppContext } from '../../contexts';
 import Card from './components/Card';
 import { useProductRequest } from './hooks';
@@ -7,7 +8,6 @@ import {
   Content,
   FilterOption,
   FilterWrapper,
-  Title,
   Wrapper,
 } from './styles';
 
@@ -34,9 +34,7 @@ const Products = () => {
 
   return (
     <Wrapper>
-      <Header>
-        <Title>Product List</Title>
-      </Header>
+      <Header forwardRoute={ Routes.ShoppingCart } title='Product List' />
       <FilterWrapper>
         <FilterOption isActive={ !isFavouriteOptionSelected } onClick={ handleFilterClick(FilterOptions.All) }>
           All

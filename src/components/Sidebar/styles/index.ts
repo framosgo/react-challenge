@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { TABLET } from './media-queries';
-import { SIDEBAR_WIDTH } from './sizes';
-import { SIDEBAR_BACKGROUND } from './skin';
-import getLayerPosition from './z-index';
+import { TABLET } from '../../../styles/media-queries';
+import { SIDEBAR_WIDTH } from '../../../styles/sizes';
+import { SIDEBAR_BACKGROUND, SIDEBAR_BORDER_COLOR } from '../../../styles/skin';
+import getLayerPosition from '../../../styles/z-index';
 
 export const Sidebar = styled.div`
   display: none;
@@ -18,6 +18,7 @@ export const Sidebar = styled.div`
     position: fixed;
     height: 100%;
     overflow: auto;
+    box-shadow: -4px 0 6px -6px ${ SIDEBAR_BORDER_COLOR };
     z-index: ${ getLayerPosition('SIDEBAR') };
   }
 `;
