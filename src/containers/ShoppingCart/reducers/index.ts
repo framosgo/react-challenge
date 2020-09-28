@@ -1,24 +1,25 @@
-import { ProductCart } from '../../../types';
+import { ProductChoosen } from '../../../types';
 import { ShoppingCartActions } from '../actions';
 import { ShoppingCartActionTypes } from '../actionTypes';
 import { initialState } from '../models';
 
 export const shoppingCartReducer = (state = initialState, action: ShoppingCartActions) => {
-  let productCart: ProductCart|undefined;
+  let productCart: ProductChoosen|undefined;
+  const newData = new Map(state.data);
   switch (action.type) {
     case ShoppingCartActionTypes.AddProduct:
       productCart = state.data.get(action.payload!.id);
       if (!productCart) {
-        const newProductCart: ProductCart = {...action.payload!, amount: 1};
+        const newProductCart = action.payload!;
         return {
-          data: state.data.set(newProductCart.id, newProductCart),
+          data: newData.set(newProductCart.id, newProductCart),
           total: state.total + newProductCart.price,
         };
       }
       const {id, amount, price, stock} = productCart;
       if (amount === stock) return state;
       return {
-        data: state.data.set(id, {...productCart, amount: amount + 1}),
+        data: newData.set(id, {...productCart, amount: amount + 1}),
         total: state.total + price,
       };
 
@@ -26,12 +27,12 @@ export const shoppingCartReducer = (state = initialState, action: ShoppingCartAc
       productCart = state.data.get(action.payload!);
       if (!productCart) return state;
       if (productCart.amount === 1) {
-        const updatedData = new Map(state.data);
+        const updatedData = new Map(newData);
         updatedData.delete(productCart.id)
         return { data: updatedData, total: state.total - productCart.price }
       }
       return {
-        data: state.data.set(productCart.id, {...productCart, amount: productCart.amount - 1}),
+        data: newData.set(productCart.id, {...productCart, amount: productCart.amount - 1}),
         total: state.total - productCart.price,
       };
     default:

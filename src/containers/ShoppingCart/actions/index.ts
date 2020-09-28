@@ -1,7 +1,7 @@
 import { ShoppingCartActionTypes } from '../actionTypes';
-import { Action, Product, ProductCart } from '../../../types';
+import { Action, ProductChoosen } from '../../../types';
 
-type AddProductAction = Action<ShoppingCartActionTypes.AddProduct, ProductCart>;
+type AddProductAction = Action<ShoppingCartActionTypes.AddProduct, ProductChoosen>;
 
 type RemoveProductAction = Action<ShoppingCartActionTypes.RemoveProduct, string>;
 
@@ -9,7 +9,7 @@ type CheckoutAction = Action<ShoppingCartActionTypes.Checkout>;
 
 export type ShoppingCartActions = AddProductAction|RemoveProductAction|CheckoutAction;
 
-export const addProduct = (product: ProductCart): AddProductAction => ({
+export const addProduct = (product: ProductChoosen): AddProductAction => ({
   type: ShoppingCartActionTypes.AddProduct,
   payload: product,
 });

@@ -5,15 +5,15 @@ import { STOCK_THRESHOLD } from '../../constants';
 import {
   BottomWrapper,
   Button,
+  Content,
   Description,
   HeartIcon,
+  ImageWrapper,
   Image,
   Name,
   Price,
   Stock,
   Wrapper,
-  WrapperContent,
-  WrapperImage,
 } from './styles';
 
 interface Props {
@@ -21,7 +21,7 @@ interface Props {
   data: Product;
 }
 
-const Card: React.FC<Props> = ({ data, onAdd }: Props) => {
+const ProductCard: React.FC<Props> = ({ data, onAdd }: Props) => {
   const [isFavourite, setFavourite] = useState(data.isFavourite);
   const {
     id,
@@ -43,11 +43,11 @@ const Card: React.FC<Props> = ({ data, onAdd }: Props) => {
 
   return (
     <Wrapper>
-      <WrapperImage>
+      <ImageWrapper>
         <Image src={ imageUrl }></Image>
         <HeartIcon onClick={ toggleFavouriteProduct } isFavourite={ isFavourite } />
-      </WrapperImage>
-      <WrapperContent>
+      </ImageWrapper>
+      <Content>
         <Name>{ name }</Name>
         <Description>{ description }</Description>
         <BottomWrapper>
@@ -55,9 +55,9 @@ const Card: React.FC<Props> = ({ data, onAdd }: Props) => {
           <Stock isAvailable={ isAvailable }>{ stock } left</Stock>
           <Button disabled={ !isAvailable } onClick={ onAdd }>Add</Button>
         </BottomWrapper>
-      </WrapperContent>
+      </Content>
     </Wrapper>
   );
 }
 
-export default Card;
+export default ProductCard;

@@ -24,7 +24,7 @@ export const Title = styled.div`
 Title.displayName = 'Title';
 
 type AngleLinkProps = {
-  isBack?: boolean;
+  $isBack?: boolean;
 }
 
 export const AngleLink = styled(Link)`
@@ -32,15 +32,15 @@ export const AngleLink = styled(Link)`
   position absolute;
   width: 20px;
   height: 20px;
-  left: ${ ({ isBack }: AngleLinkProps) => isBack ? '1rem' : 'auto' };
-  right: ${ ({ isBack }: AngleLinkProps) => isBack ? 'auto': '1rem' };
+  left: ${ ({ $isBack }: AngleLinkProps) => $isBack ? '1rem' : 'auto' };
+  right: ${ ({ $isBack }: AngleLinkProps) => $isBack ? 'auto': '1rem' };
   background: transparent;
   border-width: 5px;
   border-top: 2px solid ${ HEADER_BORDER_COLOR };
   border-left: 2px solid ${ HEADER_BORDER_COLOR };
   text-decoration: none;
   color: transparent;
-  transform: rotate(${ ({ isBack }: AngleLinkProps) => isBack ? -45 : 135 }deg);
+  transform: rotate(${ ({ $isBack }: AngleLinkProps) => $isBack ? -45 : 135 }deg);
 
   ${ TABLET } {
     display: none;

@@ -1,8 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import Header from '../../components/Header';
 import { Routes } from '../../constants/routes';
+import * as shoppingCartActions from '../ShoppingCart/actions';
+import { productToProductChoosen } from '../ShoppingCart/models';
 import { useAppContext } from '../../contexts';
-import Card from './components/Card';
+import ProductCard from './components/ProductCard';
 import { useProductRequest } from './hooks';
 import {
   Content,
@@ -10,6 +12,7 @@ import {
   FilterWrapper,
   Wrapper,
 } from './styles';
+import { Product } from '../../types';
 
 enum FilterOptions {
   All,
@@ -28,9 +31,13 @@ const Products = () => {
     setFilterOption(option);
   }, []);
 
+  const addProduct = useCallback((product: Product) => () => {
+    dispatch(shoppingCartActions.addProduct(productToProductChoosen(product)));
+  }, [dispatch]);
+
   const productList = useMemo(() => Array.from(products).map(([key, product]) => (
-    <Card key={ key } data={ product} onAdd={ () => {} } />
-  )).slice(0, 10), [products]);
+    <ProductCard key={ key } data={ product} onAdd={ addProduct(product) } />
+  )), [products, addProduct]);
 
   return (
     <Wrapper>

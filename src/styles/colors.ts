@@ -1,3 +1,5 @@
+export const NONE = 'transparent';
+
 export const WHITE_1 = '#ffffff';
 export const WHITE_2 = '#f4f4f4';
 

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import {
   ERROR_COLOR,
   FAVOURITE_COLOR,
+  PRICE_COLOR,
   SECONDARY_BACKGROUND,
   SUCCESS_COLOR,
   TEXT_PRIMARY_COLOR,
   UNFAVOURITE_COLOR,
-
 } from '../../../../../styles/skin';
 
 export const Wrapper = styled.div`
@@ -18,11 +18,11 @@ export const Wrapper = styled.div`
 `;
 Wrapper.displayName = 'Wrapper';
 
-export const WrapperImage = styled.div`
+export const ImageWrapper = styled.div`
   position: relative;
   display: flex;
 `;
-WrapperImage.displayName = WrapperImage;
+ImageWrapper.displayName = ImageWrapper;
 
 type HeartIconProps = {
   isFavourite: boolean;
@@ -67,14 +67,14 @@ export const Image = styled.img`
 `;
 Image.displayName = Image;
 
-export const WrapperContent = styled.div`
+export const Content = styled.div`
   position: relative;
   display: flex;
   flex-flow: column;
   flex: 1;
   padding: 0.5rem;
 `;
-WrapperContent.displayName = WrapperContent;
+Content.displayName = Content;
 
 export const Name = styled.div`
   font-size: 1.3rem;
@@ -106,9 +106,8 @@ export const BottomWrapper = styled.div`
 BottomWrapper.displayName = 'BottomWrapper';
 
 export const Price = styled.div`
-  display: flex;
-  flex-flow: column;
-  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${PRICE_COLOR};
 `;
 Price.displayName = 'Price';
 
@@ -127,7 +126,8 @@ export const Stock = styled.div`
 Stock.displayName = 'Stock';
 
 export const Button = styled.button`
-  display: flex;
-  flex-flow: column;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: monospace;
 `;
 Button.displayName = 'Button';

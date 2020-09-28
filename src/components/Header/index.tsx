@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ backRoute, forwardRoute, title }: Props) => {
-  const backAngle = backRoute && <AngleLink isBack to={ backRoute }></AngleLink>;
+  const backAngle = backRoute && <AngleLink $isBack to={ backRoute }></AngleLink>;
   const forwardAngle = forwardRoute && <AngleLink to={ forwardRoute }></AngleLink>;
 
   return (
